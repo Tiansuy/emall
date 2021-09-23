@@ -1,32 +1,36 @@
+/* eslint-disable prettier/prettier */
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app class="grey darken-4">
+    <core-app-bar />
+
+    <core-drawer />
+
+    <core-view />
+
+    <core-friends />
+
+    <core-snackbar />
+  </v-app>
 </template>
 
+<script>
+export default {
+  components: {
+    // eslint-disable-next-line prettier/prettier
+    CoreAppBar: () => import('@/components/core/AppBar'),
+    CoreDrawer: () => import("@/components/core/Drawer"),
+    CoreFriends: () => import("@/components/core/Friends"),
+    CoreSnackbar: () => import("@/components/core/Snackbar"),
+    CoreView: () => import("@/components/core/View"),
+  },
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.v-card {
+  border-radius: 6px;
 }
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+a {
+  text-decoration: none;
 }
 </style>

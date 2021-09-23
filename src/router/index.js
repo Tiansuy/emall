@@ -1,30 +1,47 @@
 import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Router from "vue-router";
 
-Vue.use(VueRouter);
+Vue.use(Router);
 
-const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home,
-  },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
-  },
-];
-
-const router = new VueRouter({
+const router = new Router({
   mode: "history",
   base: process.env.BASE_URL,
-  routes,
+  scrollBehavior: () => ({ x: 0, y: 0 }),
+  routes: [
+    {
+      path: "/",
+      name: "Home",
+      component: () => import("@/views/home/Index"),
+    },
+    {
+      path: '/article/:slug',
+      name: 'Article',
+      component: () => import('@/views/article/Index'),
+    },
+    {
+      path: "/store",
+      name: "Store",
+      component: () => import("@/views/store/Index"),
+    },
+    {
+      path: "/store/games/:id",
+      name: "StorePage",
+      component: () => import("@/views/store-page/Index"),
+    },
+  ],
 });
+
+// Bootstrap Analytics
+// Set in .env
+// https://github.com/MatteoGabriele/vue-analytics
+if (process.env.VUE_APP_GOOGLE_ANALYTICS) {
+  Vue.use(require("vue-analytics").default, {
+    id: process.env.VUE_APP_GOOGLE_ANALYTICS,
+    router,
+    autoTracking: {
+      page: process.env.NODE_ENV !== "development",
+    },
+  });
+}
 
 export default router;

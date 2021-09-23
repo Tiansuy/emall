@@ -1,11 +1,40 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-Vue.use(Vuex);
+// Modules
+import app from '@/store/modules/app'
+import auth from '@/store/modules/auth'
+import downloads from '@/store/modules/downloads'
+import friends from '@/store/modules/friends'
+import games from '@/store/modules/games'
+import home from '@/store/modules/home'
+import install from '@/store/modules/install'
+import library from '@/store/modules/library'
+import snackbar from '@/store/modules/snackbar'
+import verify from '@/store/modules/verify'
 
-export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {},
-});
+Vue.use(Vuex)
+
+const store = new Vuex.Store({
+  modules: {
+    app,
+    auth,
+    downloads,
+    friends,
+    games,
+    home,
+    install,
+    library,
+    snackbar,
+    verify,
+  },
+  actions: {
+    init: async () => {
+      await Promise.all([])
+    },
+  },
+})
+
+store.dispatch('init')
+
+export default store
