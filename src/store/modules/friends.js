@@ -2,7 +2,6 @@ import { set, toggle } from '@/utils/vuex'
 
 export default {
   namespaced: true,
-
   state: {
     drawer: null,
     friends: [
@@ -24,6 +23,31 @@ export default {
       {
         id: 3,
         name: 'Jimmy Doe',
+        online: false,
+      },
+      {
+        id: 4,
+        name: 'Charles Edward Cheese',
+        online: false,
+      },
+      {
+        id: 4,
+        name: 'Charles Edward Cheese',
+        online: false,
+      },
+      {
+        id: 4,
+        name: 'Charles Edward Cheese',
+        online: false,
+      },
+      {
+        id: 4,
+        name: 'Charles Edward Cheese',
+        online: false,
+      },
+      {
+        id: 4,
+        name: 'Charles Edward Cheese',
         online: false,
       },
       {

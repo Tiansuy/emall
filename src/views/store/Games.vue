@@ -20,7 +20,7 @@
     },
 
     data: () => ({
-      order: [
+      orders: [
         { component: 'row1', count: 1 },
         { component: 'row2', count: 3 },
         { component: 'row3', count: 3 },
@@ -36,10 +36,10 @@
         const games = this.parsedGames.slice(3)
         const groups = []
 
-        for (const order of this.order) {
+        for (const order of this.orders) {
           if (
-            groups.length === games.length ||
-            !games.length
+            groups.length === this.orders.length ||
+            !games.length || games.length<order.count
           ) {
             break
           }

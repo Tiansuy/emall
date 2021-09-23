@@ -12,6 +12,8 @@ import install from '@/store/modules/install'
 import library from '@/store/modules/library'
 import snackbar from '@/store/modules/snackbar'
 import verify from '@/store/modules/verify'
+import cart from '@/store/modules/cart'
+
 
 Vue.use(Vuex)
 
@@ -27,6 +29,7 @@ const store = new Vuex.Store({
     library,
     snackbar,
     verify,
+    cart,
   },
   actions: {
     init: async () => {

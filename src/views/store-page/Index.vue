@@ -6,7 +6,7 @@
     >
       <router-link to="/store">
         <v-subheader>
-          Back to Store
+          返回商店
         </v-subheader>
       </router-link>
       <v-row
@@ -25,8 +25,9 @@
           <v-btn
             :color="game.buyColor || 'blue'"
             style="min-width: 225px; height: 52px;"
+            @click="addToCart()"
           >
-            Install
+            加入购物车
           </v-btn>
         </v-col>
       </v-row>
@@ -117,6 +118,7 @@
   import {
     mapGetters,
     mapState,
+    mapMutations,
   } from 'vuex'
 
   export default {
@@ -124,10 +126,19 @@
 
     computed: {
       ...mapGetters('games', ['parsedGames']),
+      ...mapGetters('cart', ['parsedGamesCart']),
       ...mapState('route', ['params']),
       game () {
         return this.parsedGames.find(game => Number(game.id) === Number(this.params.id))
       },
+    },
+    methods: {
+      ...mapMutations('cart', ['setGames']),
+      addToCart(){
+        console.log('1',this.parsedGamesCart);
+        // this.setGames(this.parsedGamesCart.push(this.game))
+        // console.log('2',this.parsedGamesCart);
+      }
     },
   }
 </script>

@@ -25,8 +25,7 @@
             />
           </v-row>
         </v-img>
-      </router-link>
-
+        </router-link>
       <v-fade-transition mode="out-in">
         <component
           :is="getAction(value)"
@@ -116,12 +115,14 @@
 
     methods: {
       getAction (game) {
-        let action = 'Launch'
+        // let action = 'Launch'
 
-        if (this.verifying === game.id) action = 'Verify'
-        if (!game.installed) action = 'Install'
+        // if (this.verifying === game.id) action = 'Verify'
+        // if (!game.installed) action = 'Install'
 
-        return `${action}Action`
+        // return `${action}Action`
+        console.log(game);
+        return `LaunchAction`
       },
     },
   }

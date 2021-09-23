@@ -96,6 +96,33 @@ export default {
         publisher: 'Deepdive',
         updated: 1545864353040,
       },
+      {
+        id: 11,
+        name: 'Down Below',
+        src: 'down-below',
+        price: 19.99,
+        compareAt: 19.99,
+        publisher: 'Deepdive',
+        updated: 1545864353040,
+      },
+      {
+        id: 12,
+        name: 'Atomic 12',
+        src: 'atomic',
+        price: 59.99,
+        compareAt: 54.34,
+        publisher: 'Frostfire Interactive',
+        updated: 1545864353030,
+      },
+      {
+        id: 13,
+        name: 'Down Below',
+        src: 'down-below',
+        price: 19.99,
+        compareAt: 19.99,
+        publisher: 'Deepdive',
+        updated: 1545864353020,
+      },
     ],
   },
 
@@ -104,7 +131,7 @@ export default {
       return getters.parsedGames.sort((a, b) => {
         if (a.updated < b.updated) return -1
         if (a.updated > b.updated) return 1
-        return 0
+        return 0  
       }).slice(0, 3)
     },
     parsedGames: state => {

@@ -10,7 +10,7 @@
       style="overflow: visible"
     >
       <v-row
-        class="mx-0 flex-column"
+        class="mx-0 flex-column fill-height"
         justify="center"
       >
         <v-col>
@@ -24,13 +24,14 @@
 
               <v-list-item>
                 <v-list-item-title class="subheading font-weight-light pl-4">
-                  购物车 {{ online }}
+                  Friends Online {{ online }}
                 </v-list-item-title>
               </v-list-item>
 
               <v-divider />
-              <v-menu
-                  v-for="game in parsedGames"
+
+                <v-menu
+                  v-for="game in 22"
                   :key="game"
                   :offset-x="$vuetify.breakpoint.mdAndUp"
                   :offset-y="$vuetify.breakpoint.smAndDown"
@@ -47,14 +48,7 @@
                       class="mx-n2"
                       v-on="on"
                     >
-                    <game
-                      :value="game"
-                      :understate="!game.installed"
-                      class="my-2"
-                      dense
-                      static
-                      show-action
-                    />
+                    123
                     </v-list-item>
                   </template>
 
@@ -72,7 +66,6 @@
                     </v-list-item>
                   </v-list>
                 </v-menu>
-                
             </template>
           </v-list>
         </v-col>
@@ -114,11 +107,11 @@
 
     components: {
       CoreFab: () => import('./Fab'),
-      Game: () => import('@/components/Game'),
+      // Game: () => import('@/components/Game'),
     },
 
     computed: {
-      ...mapGetters('cart', ['parsedGamesCart']),
+      ...mapGetters('library', ['games']),
       ...mapGetters('friends', ['online']),
       ...mapState('auth', ['loggedIn']),
       ...mapState('friends', [

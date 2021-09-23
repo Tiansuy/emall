@@ -1,12 +1,15 @@
 <template>
   <v-navigation-drawer
-    v-model="drawer"
     app
+    v-model="drawer"
     class="grey darken-4"
     floating
     width="200"
   >
-    <v-list color="transparent">
+    <v-list
+    dense
+    rounded
+    color="transparent">
       <v-list-item class="mb-4">
         <v-list-item-avatar tile>
           <v-img

@@ -8,8 +8,6 @@
     <core-view />
 
     <core-friends />
-
-    <core-snackbar />
   </v-app>
 </template>
 
@@ -20,7 +18,6 @@ export default {
     CoreAppBar: () => import('@/components/core/AppBar'),
     CoreDrawer: () => import("@/components/core/Drawer"),
     CoreFriends: () => import("@/components/core/Friends"),
-    CoreSnackbar: () => import("@/components/core/Snackbar"),
     CoreView: () => import("@/components/core/View"),
   },
 };
